@@ -6,11 +6,11 @@
     Automates the deployment of Windows 11 with specified parameters, downloads OOBE scripts, and sets up post-installation tasks.
 
 .NOTES
-    Author: Florian Salzmann | @FlorianSLZ | https://scloud.work
+    Author: Lifeware
     Version: 1.0
 
     Changelog:
-    - 2024-08-29: 1.0 Initial version
+    - 2024-10-04: 1.0 Initial version
 
     
 #>
@@ -45,7 +45,7 @@ Start-OSDCloud @Params
 Write-Host -ForegroundColor Green "Downloading and creating script for OOBE phase"
 New-Item -Path "C:\Windows\Setup\Scripts" -ItemType Directory -Force | Out-Null
 $OOBEScript = "Updates_Activation.ps1"
-Invoke-RestMethod   -Uri "https://raw.githubusercontent.com/FlorianSLZ/OSDCloud-Stuff/main/OOBE/SplashScreen/$OOBEScript" `
+Invoke-RestMethod   -Uri "https://github.com/lifeware-sa/intune/raw/refs/heads/main/OSDCloud/OOBE/SplashScreen/$OOBEScript" `
                     -OutFile "C:\Windows\Setup\Scripts\$OOBEScript"
 
 $OOBECMD = @"
