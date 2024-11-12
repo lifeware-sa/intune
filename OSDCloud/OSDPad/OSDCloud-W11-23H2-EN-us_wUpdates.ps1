@@ -69,9 +69,10 @@ $OOBECMD | Out-File -FilePath 'C:\Windows\Setup\Scripts\oobe.cmd' -Encoding asci
 #################################################################
 #   [PostOS] Restart-Computer
 #################################################################
+<#
 10..1 | ForEach-Object{
     Write-Progress -Activity "Computer Restart" -Status "in $_ seconds"
     Start-Sleep -seconds 1
  }
 Restart-Computer -Force
-
+#>
