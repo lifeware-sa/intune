@@ -50,6 +50,8 @@ Copy-Item -Path "X:\OSDCloud\Config\Scripts\SetupComplete\LifewareRootCA.cer" -D
 Copy-Item -Path "X:\OSDCloud\Config\Scripts\SetupComplete\LifewareRootCA.cer" -Destination "C:\OSDCloud\Scripts\SetupComplete\LifewareRootCA.cer" -Force
 Copy-Item -Path "X:\OSDCloud\Config\Scripts\SetupComplete\LifewareRootCA.cer" -Destination "C:\Windows\Setup\Scripts\LifewareRootCA.cer" -Force
 
+certutil -addstore root C:\OSDCloud\Scripts\SetupComplete\LifewareRootCA.cer
+
 $OOBEScript = "Updates_Activation.ps1"
 Invoke-RestMethod   -Uri "https://github.com/lifeware-sa/intune/raw/refs/heads/main/OSDCloud/OOBE/SplashScreen/$OOBEScript" `
                     -OutFile "C:\Windows\Setup\Scripts\$OOBEScript"
