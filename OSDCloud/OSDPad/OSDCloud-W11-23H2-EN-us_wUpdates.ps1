@@ -24,8 +24,6 @@ Install-Module OSD -Force -ErrorAction SilentlyContinue
 Write-Host  -ForegroundColor Green "Importing OSD PowerShell Module"
 Import-Module OSD -Force   
 
-# LW-Certificate
-Copy-Item -Path "X:\OSDCloud\Config\Scripts\SetupComplete\LifewareRootCA.cer" -Destination "C:\OSDCloud\Config\Scripts\SetupComplete\LifewareRootCA.cer" -Force
 #################################################################
 #   [OS] Params and Start-OSDCloud
 #################################################################
@@ -49,6 +47,8 @@ New-Item -Path "C:\Windows\Setup\Scripts" -ItemType Directory -Force | Out-Null
 
 # LW-Certificate
 Copy-Item -Path "X:\OSDCloud\Config\Scripts\SetupComplete\LifewareRootCA.cer" -Destination "C:\Windows\Setup\Scripts\SetupComplete\LifewareRootCA.cer" -Force
+Copy-Item -Path "X:\OSDCloud\Scripts\SetupComplete\LifewareRootCA.cer" -Destination "C:\OSDCloud\Scripts\SetupComplete\LifewareRootCA.cer" -Force
+Copy-Item -Path "X:\OSDCloud\Config\Scripts\SetupComplete\LifewareRootCA.cer" -Destination "C:\OSDCloud\Scripts\SetupComplete\LifewareRootCA.cer" -Force
 
 $OOBEScript = "Updates_Activation.ps1"
 Invoke-RestMethod   -Uri "https://github.com/lifeware-sa/intune/raw/refs/heads/main/OSDCloud/OOBE/SplashScreen/$OOBEScript" `
