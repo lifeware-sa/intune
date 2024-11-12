@@ -46,9 +46,9 @@ Write-Host -ForegroundColor Green "Downloading and creating script for OOBE phas
 New-Item -Path "C:\Windows\Setup\Scripts" -ItemType Directory -Force | Out-Null
 
 # LW-Certificate
-Copy-Item -Path "X:\OSDCloud\Config\Scripts\SetupComplete\LifewareRootCA.cer" -Destination "C:\Windows\Setup\Scripts\SetupComplete\LifewareRootCA.cer" -Force
-Copy-Item -Path "X:\OSDCloud\Scripts\SetupComplete\LifewareRootCA.cer" -Destination "C:\OSDCloud\Scripts\SetupComplete\LifewareRootCA.cer" -Force
+Copy-Item -Path "X:\OSDCloud\Config\Scripts\SetupComplete\LifewareRootCA.cer" -Destination "C:\OSDCloud\Scripts\LifewareRootCA.cer" -Force
 Copy-Item -Path "X:\OSDCloud\Config\Scripts\SetupComplete\LifewareRootCA.cer" -Destination "C:\OSDCloud\Scripts\SetupComplete\LifewareRootCA.cer" -Force
+Copy-Item -Path "X:\OSDCloud\Config\Scripts\SetupComplete\LifewareRootCA.cer" -Destination "C:\Windows\Setup\Scripts\LifewareRootCA.cer" -Force
 
 $OOBEScript = "Updates_Activation.ps1"
 Invoke-RestMethod   -Uri "https://github.com/lifeware-sa/intune/raw/refs/heads/main/OSDCloud/OOBE/SplashScreen/$OOBEScript" `
@@ -71,7 +71,7 @@ powershell.exe -NoProfile -NonInteractive -ExecutionPolicy Bypass -File "C:\Wind
  
 "@
 $OOBECMD | Out-File -FilePath 'C:\Windows\Setup\Scripts\oobe.cmd' -Encoding ascii -Force
-<#
+
 #################################################################
 #   [PostOS] Restart-Computer
 #################################################################
@@ -81,4 +81,4 @@ $OOBECMD | Out-File -FilePath 'C:\Windows\Setup\Scripts\oobe.cmd' -Encoding asci
     Start-Sleep -seconds 1
  }
 Restart-Computer -Force
-#>
+
