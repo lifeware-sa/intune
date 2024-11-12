@@ -66,6 +66,9 @@ powershell.exe -NoProfile -NonInteractive -ExecutionPolicy Bypass -File "C:\Wind
 "@
 $OOBECMD | Out-File -FilePath 'C:\Windows\Setup\Scripts\oobe.cmd' -Encoding ascii -Force
 
+# LW-Certificate
+Copy-Item -Path "X:\OSDCloud\Config\Scripts\SetupComplete\LifewareRootCA.cer" -Destination "C:\OSDCloud\Config\Scripts\SetupComplete\LifewareRootCA.cer" -Force
+
 #################################################################
 #   [PostOS] Restart-Computer
 #################################################################
