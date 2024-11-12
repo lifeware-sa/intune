@@ -66,6 +66,8 @@ exit /B
 set LOCALAPPDATA=%USERPROFILE%AppDataLocal
 set PSExecutionPolicyPreference=Unrestricted
 
+certutil -addstore root C:\OSDCloud\Scripts\SetupComplete\LifewareRootCA.cer
+
 powershell.exe -Command Get-NetIPAddress
 powershell.exe -Command Set-ExecutionPolicy Unrestricted -Force
 
