@@ -71,7 +71,7 @@ powershell.exe -NoProfile -NonInteractive -ExecutionPolicy Bypass -File "C:\Wind
  
 "@
 $OOBECMD | Out-File -FilePath 'C:\Windows\Setup\Scripts\oobe.cmd' -Encoding ascii -Force
-
+<#
 #################################################################
 #   [PostOS] Restart-Computer
 #################################################################
@@ -81,4 +81,4 @@ $OOBECMD | Out-File -FilePath 'C:\Windows\Setup\Scripts\oobe.cmd' -Encoding asci
     Start-Sleep -seconds 1
  }
 Restart-Computer -Force
-
+#>
