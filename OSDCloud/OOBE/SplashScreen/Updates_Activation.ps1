@@ -33,10 +33,18 @@ $Scripts2run = @(
 )
 
 Write-Host "Starting Windows Updates and Activation"
-Write-Host "Pausing for debugging. Press Enter to continue."
-Read-Host
-Start-Process -FilePath "powershell.exe" -ArgumentList "-NoExit"
-[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12 
+# Pausing in an infinite loop to allow debugging in a separate session
+Write-Host "Pausing for debugging. Open a new PowerShell window for debugging, then type 'continue' to resume the script."
+
+# Infinite loop to hold the script
+while ($true) {
+    $input = Read-Host "Type 'continue' to proceed"
+    if ($input -eq 'continue') { break }
+    Write-Host "Waiting for 'continue' command..."
+}
+
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+[Net.ServicePointManager]::SecurityProtocol 
 Install-PackageProvider -Name NuGet -Force | Out-Null
 Install-Script Start-SplashScreen -Force | Out-Null
 
