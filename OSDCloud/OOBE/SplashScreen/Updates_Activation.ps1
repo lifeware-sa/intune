@@ -39,7 +39,7 @@ Write-Host "Waiting for network connectivity..."
 
 # Loop to check for active network connection
 while ($true) {
-    $connectionTest = Test-NetConnection -ComputerName 8.8.8.8 -Port 80
+    $connectionTest = Test-NetConnection -ComputerName 8.8.8.8 -Port 443
     if ($connectionTest.TcpTestSucceeded) {
         Write-Host "Network connection detected!"
         break
