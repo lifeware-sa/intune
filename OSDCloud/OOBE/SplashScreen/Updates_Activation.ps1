@@ -33,7 +33,9 @@ $Scripts2run = @(
 )
 
 Write-Host "Starting Windows Updates and Activation"
-
+Write-Host "Pausing for debugging. Press Enter to continue."
+Read-Host
+Start-Process -FilePath "powershell.exe" -ArgumentList "-NoExit"
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12 
 Install-PackageProvider -Name NuGet -Force | Out-Null
 Install-Script Start-SplashScreen -Force | Out-Null

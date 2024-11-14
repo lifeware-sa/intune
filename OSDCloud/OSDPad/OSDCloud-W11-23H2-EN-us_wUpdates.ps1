@@ -70,6 +70,8 @@ powershell.exe sleep 60
 
 powershell.exe -Command Get-NetIPAddress
 
+powershell.exe -Command $PSVersionTable.PSVersion
+
 powershell.exe -Command Set-ExecutionPolicy Unrestricted -Force
 
 powershell.exe -NoProfile -NonInteractive -ExecutionPolicy Bypass -File "C:\Windows\Setup\Scripts\$OOBEScript"
