@@ -39,7 +39,6 @@ Write-Host "Waiting for network connectivity..."
 
 # Loop to check for active network connection
 while ($true) {
-    # You can specify a common site to test connectivity, such as Google DNS (8.8.8.8)
     $connectionTest = Test-Connection -ComputerName 8.8.8.8 -Count 1 -Quiet
     if ($connectionTest) {
         Write-Host "Network connection detected!"
