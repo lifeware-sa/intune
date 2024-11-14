@@ -54,11 +54,11 @@ while ($true) {
 
 
 # Infinite loop to hold the script
-while ($true) {
-    $input = Read-Host "Type 'continue' to proceed"
-    if ($input -eq 'continue') { break }
-    Write-Host "Waiting for 'continue' command..."
-}
+# while ($true) {
+#     $input = Read-Host "Type 'continue' to proceed"
+#     if ($input -eq 'continue') { break }
+#     Write-Host "Waiting for 'continue' command..."
+# }
 
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 [Net.ServicePointManager]::SecurityProtocol 
