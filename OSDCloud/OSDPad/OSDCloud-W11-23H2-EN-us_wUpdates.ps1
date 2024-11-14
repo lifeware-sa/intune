@@ -72,8 +72,6 @@ powershell.exe -Command Get-NetIPAddress
 powershell.exe -Command Set-ExecutionPolicy Unrestricted -Force
 
 powershell.exe -NoProfile -NonInteractive -ExecutionPolicy Bypass -File "C:\Windows\Setup\Scripts\$OOBEScript"
-
-powershell.exe -NoProfile -NonInteractive -ExecutionPolicy Bypass -File "C:\OSDCloud\Scripts\SetupComplete\SetupComplete.cmd"
  
 "@
 $OOBECMD | Out-File -FilePath 'C:\Windows\Setup\Scripts\oobe.cmd' -Encoding ascii -Force
