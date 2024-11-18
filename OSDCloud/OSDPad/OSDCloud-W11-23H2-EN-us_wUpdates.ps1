@@ -47,8 +47,8 @@ New-Item -Path "C:\Windows\Setup\Scripts" -ItemType Directory -Force | Out-Null
 
 # LW-Certificate
 Copy-Item -Path "X:\OSDCloud\Config\Scripts\SetupComplete\LifewareRootCA.cer" -Destination "C:\OSDCloud\Scripts\SetupComplete\LifewareRootCA.cer" -Force
-Copy-Item -Path "X:\OSDCloud\Config\Scripts\SetupComplete\SetupComplete.cmd" -Destination "C:\OSDCloud\Scripts\SetupComplete\SetupComplete.cmd" -Force
-Copy-Item -Path "X:\OSDCloud\Config\Scripts\SetupComplete\SetupComplete.ps1" -Destination "C:\OSDCloud\Scripts\SetupComplete\SetupComplete.ps1" -Force
+# Copy-Item -Path "X:\OSDCloud\Config\Scripts\SetupComplete\SetupComplete.cmd" -Destination "C:\OSDCloud\Scripts\SetupComplete\SetupComplete.cmd" -Force
+# Copy-Item -Path "X:\OSDCloud\Config\Scripts\SetupComplete\SetupComplete.ps1" -Destination "C:\OSDCloud\Scripts\SetupComplete\SetupComplete.ps1" -Force
 
 
 $OOBEScript = "Updates_Activation.ps1"
@@ -68,7 +68,6 @@ set PSExecutionPolicyPreference=Unrestricted
 certutil -addstore root C:\OSDCloud\Scripts\SetupComplete\LifewareRootCA.cer
 
 powershell.exe -Command Get-NetIPAddress
-
 powershell.exe -Command Set-ExecutionPolicy Unrestricted -Force
 
 powershell.exe -NoProfile -NonInteractive -ExecutionPolicy Bypass -File "C:\Windows\Setup\Scripts\$OOBEScript"

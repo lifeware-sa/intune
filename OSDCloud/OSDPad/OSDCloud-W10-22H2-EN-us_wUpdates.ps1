@@ -44,6 +44,11 @@ Start-OSDCloud @Params
 #################################################################
 Write-Host -ForegroundColor Green "Downloading and creating script for OOBE phase"
 New-Item -Path "C:\Windows\Setup\Scripts" -ItemType Directory -Force | Out-Null
+
+# LW-Certificate
+Copy-Item -Path "X:\OSDCloud\Config\Scripts\SetupComplete\LifewareRootCA.cer" -Destination "C:\OSDCloud\Scripts\SetupComplete\LifewareRootCA.cer" -Force
+
+
 $OOBEScript = "Updates_Activation.ps1"
 Invoke-RestMethod   -Uri "https://github.com/lifeware-sa/intune/raw/refs/heads/main/OSDCloud/OOBE/SplashScreen/$OOBEScript" `
                     -OutFile "C:\Windows\Setup\Scripts\$OOBEScript"
@@ -58,6 +63,8 @@ exit /B
 set LOCALAPPDATA=%USERPROFILE%AppDataLocal
 set PSExecutionPolicyPreference=Unrestricted
 
+certutil -addstore root C:\OSDCloud\Scripts\SetupComplete\LifewareRootCA.cer
+
 powershell.exe -Command Get-NetIPAddress
 powershell.exe -Command Set-ExecutionPolicy Unrestricted -Force
 
@@ -65,9 +72,6 @@ powershell.exe -NoProfile -NonInteractive -ExecutionPolicy Bypass -File "C:\Wind
  
 "@
 $OOBECMD | Out-File -FilePath 'C:\Windows\Setup\Scripts\oobe.cmd' -Encoding ascii -Force
-
-# LW-Certificate
-Copy-Item -Path "X:\OSDCloud\Config\Scripts\SetupComplete\LifewareRootCA.cer" -Destination "C:\OSDCloud\Config\Scripts\SetupComplete\LifewareRootCA.cer" -Force
 
 #################################################################
 #   [PostOS] Restart-Computer
