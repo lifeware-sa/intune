@@ -50,11 +50,9 @@ Copy-Item -Path "X:\OSDCloud\Config\Scripts\SetupComplete\LifewareRootCA.cer" -D
 Copy-Item -Path "X:\OSDCloud\Config\Scripts\SetupComplete\SetupComplete.cmd" -Destination "C:\OSDCloud\Scripts\SetupComplete\SetupComplete.cmd" -Force
 Copy-Item -Path "X:\OSDCloud\Config\Scripts\SetupComplete\SetupComplete.ps1" -Destination "C:\OSDCloud\Scripts\SetupComplete\SetupComplete.ps1" -Force
 
-
-Write-Host  -ForegroundColor Green "Marvel driver install"
+Write-Host  -ForegroundColor Green "Marvel copy driver install"
 Copy-Item -Path "X:\OSDCloud\Config\Scripts\SetupComplete\marvelDriver.msi" -Destination "C:\OSDCloud\Scripts\SetupComplete\marvelDriver.msi" -Force
-$pkg = "C:\OSDCloud\Scripts\SetupComplete\marvelDriver.msi";
-Start-Process msiexec "/i $pkg /qn";
+
 
 $OOBEScript = "Updates_Activation.ps1"
 Invoke-RestMethod   -Uri "https://github.com/lifeware-sa/intune/raw/refs/heads/main/OSDCloud/OOBE/SplashScreen/$OOBEScript" `

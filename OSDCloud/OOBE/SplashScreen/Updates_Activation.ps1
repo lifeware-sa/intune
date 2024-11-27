@@ -34,6 +34,8 @@ $Scripts2run = @(
 
 Write-Host "Starting Windows Updates and Activation"
 
+C:\OSDCloud\Scripts\SetupComplete\marvelDriver.msi /qn
+
 # Wait for network connectivity
 Write-Host "Waiting for network connectivity..."
 
