@@ -53,16 +53,6 @@ while ($true) {
 
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 Install-PackageProvider -Name NuGet -Force | Out-Null
-
-if($(Get-PSRepository).Name -notcontains "PSGallery") {
-  [Net.ServicePointManager]::SecurityProtocol = [Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12
-  Register-PSRepository -Default -Verbose
-  Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
-}
-# Install-PackageProvider -Name NuGet -Force | Out-Null
-Install-Script -Name Get-WindowsAutoPilotInfo -Force | Out-Null
-Install-Module -Name WindowsAutopilotIntune -Force | Out-Null
-
 Install-Script Start-SplashScreen -Force | Out-Null
 
 Start-SplashScreen.ps1 -Processes $Scripts2run
