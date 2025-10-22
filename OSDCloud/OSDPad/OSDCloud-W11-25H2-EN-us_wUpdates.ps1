@@ -45,6 +45,9 @@ Start-OSDCloud @Params
 Write-Host -ForegroundColor Green "Downloading and creating script for OOBE phase"
 New-Item -Path "C:\Windows\Setup\Scripts" -ItemType Directory -Force | Out-Null
 
+New-Item -Path "C:\Drivers\*" -ItemType Directory -Force | Out-Null
+Copy-Item -Path "D:\Drivers\*" -Destination "C:\Drivers\" -recurse -ErrorAction SilentlyContinue  | Out-Null
+
 # LW-Certificate
 Copy-Item -Path "X:\OSDCloud\Config\Scripts\SetupComplete\LifewareRootCA.cer" -Destination "C:\OSDCloud\Scripts\SetupComplete\LifewareRootCA.cer" -Force
 Copy-Item -Path "X:\OSDCloud\Config\Scripts\SetupComplete\SetupComplete.cmd" -Destination "C:\OSDCloud\Scripts\SetupComplete\SetupComplete.cmd" -Force
