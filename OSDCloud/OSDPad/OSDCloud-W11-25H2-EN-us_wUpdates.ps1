@@ -47,6 +47,7 @@ New-Item -Path "C:\Windows\Setup\Scripts" -ItemType Directory -Force | Out-Null
 
 New-Item -Path "C:\Drivers\" -ItemType Directory -Force | Out-Null
 Copy-Item -Path "D:\Drivers\Proxmox\Windows11-28\*" -Destination "C:\Drivers\" -recurse -ErrorAction SilentlyContinue  | Out-Null
+Get-ChildItem -Path "C:\Drivers\" -Include *.msi,*.exe -Recurse | Remove-Item -Force
 
 # LW-Certificate
 Copy-Item -Path "X:\OSDCloud\Config\Scripts\SetupComplete\LifewareRootCA.cer" -Destination "C:\OSDCloud\Scripts\SetupComplete\LifewareRootCA.cer" -Force
