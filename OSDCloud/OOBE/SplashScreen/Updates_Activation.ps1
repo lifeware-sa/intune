@@ -27,6 +27,8 @@ function Get-Hypervisor {
         }
     } catch { return "Unknown" }
 }
+
+$hv = Get-Hypervisor
 $virtioPath = "c:\Drivers\Proxmox\Windows11\virtio-win-guest-tools.exe"
 if ($hv -eq "KVM" -and (Test-Path $virtioPath)) {
    Start-Process -FilePath $virtioPath -ArgumentList '/S /norestart /log="C:\Windows\Temp\virtio-install.log"' 
