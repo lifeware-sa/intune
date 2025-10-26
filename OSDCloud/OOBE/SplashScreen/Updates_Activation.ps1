@@ -13,6 +13,25 @@
     1.1 - (2024-08-14) TLS 1.2 added/forced
 
 #>
+function Get-Hypervisor {
+    try {
+        $cs = Get-CimInstance -ClassName Win32_ComputerSystem
+        $bios = Get-CimInstance -ClassName Win32_BIOS
+        $man = ($cs.Manufacturer, $cs.Model, $bios.Manufacturer, $bios.SMBIOSBIOSVersion) -join ' '
+        switch -Regex ($man) {
+            "Xen|Citrix"         { return "Xen" }
+            "KVM|QEMU|Red Hat"   { return "KVM" }
+            "VMware"             { return "VMware" }
+            "Microsoft|Hyper-V"  { return "HyperV" }
+            default              { return "Physical" }
+        }
+    } catch { return "Unknown" }
+}
+$virtioPath = "c:\Drivers\Proxmox\Windows11\virtio-win-guest-tools.exe"
+if ($hv -eq "KVM" -and (Test-Path $virtioPath)) {
+   Start-Process -FilePath $virtioPath -ArgumentList '/S /norestart /log="C:\Windows\Temp\virtio-install.log"' 
+}
+
 $Scripts2run = @(
   @{
     Name = "Enabling built-in Windows Producy Key"
