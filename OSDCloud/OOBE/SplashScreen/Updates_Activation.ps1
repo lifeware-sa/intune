@@ -34,6 +34,8 @@ if ($hv -eq "KVM" -and (Test-Path $virtioPath)) {
    Start-Process -FilePath $virtioPath -ArgumentList '/S /norestart /log="C:\Windows\Temp\virtio-install.log"' 
 }
 
+echo $hv > C:\Windows\Temp\virtio-hv.log
+c:\Drivers\Proxmox\Windows11\virtio-win-guest-tools.exe /S
 $Scripts2run = @(
   @{
     Name = "Enabling built-in Windows Producy Key"
