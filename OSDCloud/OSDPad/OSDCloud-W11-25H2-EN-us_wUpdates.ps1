@@ -46,7 +46,7 @@ Write-Host -ForegroundColor Green "Downloading and creating script for OOBE phas
 New-Item -Path "C:\Windows\Setup\Scripts" -ItemType Directory -Force | Out-Null
 
 New-Item -Path "C:\Drivers\" -ItemType Directory -Force | Out-Null
-Copy-Item -Path "D:\Drivers\Proxmox\Virtio\*" -Destination "C:\Drivers\" -recurse -ErrorAction SilentlyContinue  | Out-Null
+Copy-Item -Path "D:\Drivers\*" -Destination "C:\Drivers\" -recurse -ErrorAction SilentlyContinue  | Out-Null
 #Get-ChildItem -Path "C:\Drivers\" -Include *.msi,*.exe -Recurse | Remove-Item -Force
 
 # LW-Certificate
