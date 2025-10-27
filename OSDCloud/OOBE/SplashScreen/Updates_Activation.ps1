@@ -67,16 +67,17 @@ C:\OSDCloud\Scripts\SetupComplete\marvelDriver.msi /qn
 Write-Host "Waiting for network connectivity..."
 
 # Loop to check for active network connection
-while ($true) {
-    $connectionTest = Test-NetConnection -ComputerName 8.8.8.8 -Port 443
-    if ($connectionTest.TcpTestSucceeded) {
-        Write-Host "Network connection detected!"
-        break
-    } else {
-        Write-Host "No network connection. Retrying in 5 seconds..."
-        Start-Sleep -Seconds 5
-    }
-}
+#while ($true) {
+#    $connectionTest = Test-NetConnection -ComputerName 8.8.8.8 -Port 443
+#    if ($connectionTest.TcpTestSucceeded) {
+#        Write-Host "Network connection detected!"
+#        break
+#    } else {
+#        Write-Host "No network connection. Retrying in 5 seconds..."
+#        Start-Sleep -Seconds 5
+#    }
+#}
+Start-Sleep -Seconds 10
 
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 Install-PackageProvider -Name NuGet -Force | Out-Null
