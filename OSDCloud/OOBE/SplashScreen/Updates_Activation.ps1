@@ -30,11 +30,11 @@ function Get-Hypervisor {
 
 $hv = Get-Hypervisor
 echo $hv > C:\Windows\Temp\virtio-hv.log
-$virtioPath = "c:\Drivers\Proxmox\Windows11\virtio-win-guest-tools.exe"
+$virtioPath = "D:\Drivers\Proxmox\Windows11\virtio-win-guest-tools.exe"
 if ($hv -eq "KVM" -and (Test-Path $virtioPath)) {
    echo "install KVM drivers" >> C:\Windows\Temp\virtio-hv.log
-   pnputil /add-driver "C:\Drivers\Proxmox\Windows11\*.inf" /install /subdirs /force
-   c:\Drivers\Proxmox\Windows11\virtio-win-guest-tools.exe /S
+   #pnputil /add-driver "C:\Drivers\Proxmox\Windows11\*.inf" /install /subdirs /force
+   D:\Drivers\Proxmox\Windows11\virtio-win-guest-tools.exe /S
    Start-Process -FilePath $virtioPath -ArgumentList '/S /norestart /log="C:\Windows\Temp\virtio-install.log"' 
 }
 
