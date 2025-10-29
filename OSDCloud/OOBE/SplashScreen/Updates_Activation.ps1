@@ -63,7 +63,7 @@ $Scripts2run = @(
 Write-Host "Starting Windows Updates and Activation"
 
 # Driver for dell to review
-# C:\OSDCloud\Scripts\SetupComplete\marvelDriver.msi /qn
+C:\OSDCloud\Scripts\SetupComplete\marvelDriver.msi /qn
 
 # Wait for network connectivity
 Write-Host "Waiting for network connectivity..."
