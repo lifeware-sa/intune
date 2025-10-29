@@ -73,7 +73,7 @@ set LOCALAPPDATA=%USERPROFILE%AppDataLocal
 set PSExecutionPolicyPreference=Unrestricted
 
 certutil -addstore root C:\OSDCloud\Scripts\SetupComplete\LifewareRootCA.cer
-
+certutil -addstore root D:\Drivers\Proxmox\Windows11\Virtio\cert\Virtio_Win_Red_Hat_CA.cer
 
 powershell.exe -Command Get-NetIPAddress
 powershell.exe -Command Set-ExecutionPolicy Unrestricted -Force
