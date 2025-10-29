@@ -33,6 +33,4 @@ Else {
     Write-Host -ForegroundColor Red 'No embedded product key found.'
 }
 
-start c:\osdloud\scripts\setupcomplete\setupcomplete.cmd
-
 Stop-Transcript
